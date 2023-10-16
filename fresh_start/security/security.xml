@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="group_admin" model="res.groups">
+            <field name="name">fresh_start /admin</field>
+
+        </record>
+        <record id="group_approval" model="res.groups">
+            <field name="name">fresh_start /approval</field>
+
+        </record>
+    <record id="only_CreateUser_can_view" model="ir.rule">
+        <field name="name">only create user can show </field>
+        <field name="model_id" ref="model_fresh_start_fresh_start"/>
+        <field name="groups" eval="[(4,ref('base.group_user'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force"> [
+            '|',('create_uid','=',False),('create_uid','=',user.id)
+            ]
+        </field>
+        </record>
+        <record id="only_GroupUser_can_view" model="ir.rule">
+        <field name="name">only group user can show </field>
+        <field name="model_id" ref="model_fresh_start_fresh_start"/>
+        <field name="groups" eval="[(4,ref('fresh_start.group_admin'))]"/>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_write" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="domain_force"> [(1,'=',1)]
+        </field>
+
+
+
+
+    </record>
+    </data>
+</odoo>

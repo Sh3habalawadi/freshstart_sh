@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_fresh_start_fresh_start,fresh_start_fresh_start,model_fresh_start_fresh_start,base.group_user,1,1,1,1
+access_fresh_start_readall,fresh_start_fresh_start,model_fresh_start_fresh_start,group_admin,1,1,1,1
+access_fresh_start_approval,fresh_start_fresh_start,model_fresh_start_fresh_start,group_approval,1,1,1,1

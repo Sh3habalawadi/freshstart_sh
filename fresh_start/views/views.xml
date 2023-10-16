@@ -1,0 +1,88 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="fresh_start.list">
+      <field name="name">norah_supermarket list</field>
+      <field name="model">fresh_start.fresh_start</field>
+      <field name="arch" type="xml">
+        <tree>
+
+          <field name="header"/>
+          <field name="body"/>
+          <field name="state"/>
+
+        </tree>
+      </field>
+    </record>
+
+
+
+
+    <record model="ir.ui.view" id="fresh_start.form">
+      <field name="name">fresh_start form</field>
+      <field name="model">fresh_start.fresh_start</field>
+      <field name="arch" type="xml">
+        <form>
+          <header>
+              <button  name="approval_b"  type="object"  icon="" string="admin approval" groups="fresh_start.group_approval"/>
+              <field name="state" widget="statusbar" statusbar_visible="draft,approval" />
+
+          </header>
+        <sheet>
+        <group>
+        </group>
+        <group>
+          <field name="header"/>
+          <field name="body"/>
+<!--          <field name="value2"/>-->
+          </group>
+        </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="fresh_start.action_window">
+      <field name="name">fresh_start window</field>
+      <field name="res_model">fresh_start.fresh_start</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="fresh_start.action_server">
+      <field name="name">fresh_start server</field>
+      <field name="model_id" ref="model_fresh_start_fresh_start"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="fresh start" id="fresh_start.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="fresh_start.menu_1" parent="fresh_start.menu_root"/>
+    <menuitem name="Menu 2" id="fresh_start.menu_2" parent="fresh_start.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="fresh_start.menu_1_list" parent="fresh_start.menu_1"
+              action="fresh_start.action_window"/>
+    <menuitem name="Server to list" id="fresh_start" parent="fresh_start.menu_2"
+              action="fresh_start.action_server"/>
+
+  </data>
+</odoo>
