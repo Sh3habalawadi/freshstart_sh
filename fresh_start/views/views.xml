@@ -20,7 +20,7 @@
 
 
     <record model="ir.ui.view" id="fresh_start.form">
-      <field name="name">fresh_start form</field>
+      <field name="name">fresh start form</field>
       <field name="model">fresh_start.fresh_start</field>
       <field name="arch" type="xml">
         <form>
@@ -46,7 +46,7 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="fresh_start.action_window">
-      <field name="name">fresh_start window</field>
+      <field name="name">fresh start window</field>
       <field name="res_model">fresh_start.fresh_start</field>
       <field name="view_mode">tree,form</field>
     </record>
@@ -74,8 +74,8 @@
 
     <!-- menu categories -->
 
-    <menuitem name="Menu 1" id="fresh_start.menu_1" parent="fresh_start.menu_root"/>
-    <menuitem name="Menu 2" id="fresh_start.menu_2" parent="fresh_start.menu_root"/>
+    <menuitem name="Fresh Start" id="fresh_start.menu_1" parent="fresh_start.menu_root"/>
+    <menuitem name="Fresh " id="fresh_start.menu_2" parent="fresh_start.menu_root"/>
 
     <!-- actions -->
 
